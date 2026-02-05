@@ -67,16 +67,16 @@ const Header: React.FC = () => {
           {/* Enhanced Logo with Scientific Identity */}
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="relative">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-accent-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-                <span className="text-white font-bold text-xl">BI</span>
-              </div>
+            <div className="w-16 h-16 glass-morphism rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-white/10">
+              <span className="text-white font-bold text-2xl">BI</span>
+            </div>
               {/* Molecular ornament */}
               <div className="absolute -top-1 -right-1 w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="w-full h-full bg-gradient-to-br from-accent-400 to-primary-400 rounded-full animate-pulse"></div>
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-2xl text-neutral-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary-600 group-hover:to-accent-600 transition-all duration-300">
+              <span className="text-white font-bold text-3xl transition-all duration-300">
                 Bioinformatics<span className="font-light">Insights</span>
               </span>
               <span className="text-xs text-neutral-500 uppercase tracking-wider opacity-75">Scientific Learning Platform</span>
