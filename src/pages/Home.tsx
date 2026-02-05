@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { articles } from '../data/mockData';
 import { Article } from '../types';
-import { Clock, User, Tag, Sparkles } from 'lucide-react';
+import { Clock, User, Tag, Sparkles, Beaker, BookOpen } from 'lucide-react';
 
 const Home: React.FC = () => {
   const featuredArticles = articles.filter(article => article.featured);
@@ -48,49 +48,89 @@ const Home: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 via-white to-accent-50 py-20 relative overflow-hidden">
-        {/* Background Visual Elements */}
-        <div className="absolute inset-0 overflow-hidden opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-primary-500 rounded-full blur-3xl"></div>
-          <div className="absolute top-20 right-20 w-48 h-48 bg-accent-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 left-1/4 w-40 h-40 bg-primary-400 rounded-full blur-2xl"></div>
-          <div className="absolute bottom-20 right-1/3 w-36 h-36 bg-accent-400 rounded-full blur-2xl"></div>
+      <section className="relative min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50 overflow-hidden">
+        {/* Enhanced Background with Scientific Elements */}
+        <div className="absolute inset-0">
+          {/* Animated Grid Pattern */}
+          <div className="h-full w-full opacity-5">
+            <div className="grid grid-cols-12 grid-rows-12 h-full">
+              {[...Array(144)].map((_, i) => (
+                <div 
+                  key={i}
+                  className={`border ${
+                    i % 4 === 0 ? 'border-primary-200/30' : 
+                    i % 4 === 1 ? 'border-accent-200/30' : 
+                    'border-neutral-200/20'
+                  }`}
+                ></div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Floating Molecular Elements */}
+          <div className="absolute top-20 left-10 w-40 h-40 bg-primary-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-32 right-20 w-56 h-56 bg-accent-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute bottom-32 left-20 w-48 h-48 bg-primary-400/15 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-20 right-16 w-44 h-44 bg-accent-400/15 rounded-full blur-2xl"></div>
           
           {/* DNA Helix Pattern */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="w-64 h-32 relative opacity-20">
-              <div className="absolute inset-0 flex flex-col justify-center space-y-2">
-                <div className="h-2 bg-gradient-to-r from-primary-600 to-accent-600 rounded-full"></div>
-                <div className="h-2 bg-gradient-to-r from-accent-600 to-primary-600 rounded-full"></div>
-                <div className="h-2 bg-gradient-to-r from-primary-600 to-accent-600 rounded-full"></div>
-                <div className="h-2 bg-gradient-to-r from-accent-600 to-primary-600 rounded-full"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-48">
+            <div className="relative w-full h-full opacity-30">
+              <div className="absolute inset-0 flex flex-col justify-center space-y-4">
+                <div className="h-3 bg-gradient-to-r from-primary-600 to-accent-600 rounded-full"></div>
+                <div className="h-3 bg-gradient-to-r from-accent-600 to-primary-600 rounded-full"></div>
+                <div className="h-3 bg-gradient-to-r from-primary-600 to-accent-600 rounded-full"></div>
+                <div className="h-3 bg-gradient-to-r from-accent-600 to-primary-600 rounded-full"></div>
               </div>
-              <div className="absolute inset-0 flex flex-col justify-center space-y-2 rotate-12">
-                <div className="h-2 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full"></div>
-                <div className="h-2 bg-gradient-to-r from-accent-400 to-primary-400 rounded-full"></div>
-                <div className="h-2 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full"></div>
-                <div className="h-2 bg-gradient-to-r from-accent-400 to-primary-400 rounded-full"></div>
+              <div className="absolute inset-0 flex flex-col justify-center space-y-4 rotate-12">
+                <div className="h-3 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full"></div>
+                <div className="h-3 bg-gradient-to-r from-accent-400 to-primary-400 rounded-full"></div>
+                <div className="h-3 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full"></div>
+                <div className="h-3 bg-gradient-to-r from-accent-400 to-primary-400 rounded-full"></div>
               </div>
             </div>
           </div>
         </div>
         
         <div className="container-custom relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-black text-neutral-900 mb-6">
-              Master <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-600">Bioinformatics</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-neutral-700 mb-8 leading-relaxed font-medium">
-              Bridging biology and data science to make complex concepts accessible for students, 
-              researchers, and professionals entering the revolutionary field of bioinformatics and biotechnology.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-              <Link to="/category/bioinformatics" className="btn btn-primary text-lg px-8 py-4">
-                🧬 Start Learning
-              </Link>
-              <Link to="/glossary" className="btn btn-secondary text-lg px-8 py-4">
-                📚 Browse Glossary
-              </Link>
+          <div className="text-center max-w-5xl mx-auto">
+            <div className="mb-8">
+              <h1 className="text-5xl md:text-7xl font-black text-neutral-900 mb-6 leading-tight">
+                Master <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-600">Bioinformatics</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-neutral-700 mb-8 leading-relaxed font-medium">
+                Advanced computational biology platform for next-generation scientists and researchers
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
+              <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-8 border border-white/20 shadow-xl">
+                <div className="text-center mb-6">
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary-600 to-accent-600 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+                    <Beaker className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-neutral-900 mb-2">Research-Led Learning</h3>
+                  <p className="text-neutral-600 mb-6">Evidence-based content from industry experts and academic researchers</p>
+                </div>
+                <Link to="/category/bioinformatics" className="group w-full bg-gradient-to-r from-primary-600 to-accent-600 text-white py-4 rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-300 font-semibold text-lg hover:scale-105 hover:shadow-2xl">
+                  🧬 Explore Research Areas
+                  <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                </Link>
+              </div>
+              
+              <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-8 border border-white/20 shadow-xl">
+                <div className="text-center mb-6">
+                  <div className="w-20 h-20 bg-gradient-to-br from-accent-600 to-primary-600 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+                    <BookOpen className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-neutral-900 mb-2">Interactive Glossary</h3>
+                  <p className="text-neutral-600 mb-6">500+ defined terms with visual explanations and examples</p>
+                </div>
+                <Link to="/glossary" className="group w-full bg-gradient-to-r from-accent-600 to-primary-600 text-white py-4 rounded-xl hover:from-accent-700 hover:to-primary-700 transition-all duration-300 font-semibold text-lg hover:scale-105 hover:shadow-2xl">
+                  📚 Browse Knowledge Base
+                  <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                </Link>
+              </div>
             </div>
             
             {/* Stats/Features */}
