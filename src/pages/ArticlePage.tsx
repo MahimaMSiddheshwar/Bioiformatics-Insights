@@ -1,26 +1,29 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { articles } from '../data/mockData';
+import { articles } from '../data/articles';
+import ArticleSection from '../components/ArticleSection';
 
 const ArticlePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
+
   const article = articles.find(a => a.slug === slug);
 
   if (!article) {
-    return <div className="pt-28 text-center">Article not found</div>;
+    return <div className="p-8">Article not found.</div>;
   }
 
   return (
-    <main className="pt-28 container-custom max-w-4xl">
-      <Link to={`/category/${article.category}`} className="text-sm text-neutral-500">
-        ← Back to {article.category}
+    <main className="max-w-4xl mx-auto px-6 py-10">
+      <Link to="/" className="text-sm text-blue-600 mb-6 inline-block">
+        ← Back
       </Link>
 
-      <h1 className="text-4xl font-bold mt-4 mb-6">{article.title}</h1>
+      <h1 className="text-4xl font-bold mb-4">{article.title}</h1>
+      <p className="text-neutral-600 mb-8">{article.summary}</p>
 
-      <div className="prose prose-lg">
-        {article.content}
-      </div>
+      {article.sections.map((section, index) => (
+        <ArticleSection key={index} section={section} />
+      ))}
     </main>
   );
 };
