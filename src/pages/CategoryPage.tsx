@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { articles } from '../data/articles';
-import { topicsByCategory, categoryMeta, isCategoryKey } from '../data/topics';
+import { topicsByCategory, categoryMeta, isCategoryKey, Topic } from '../data/topics';
 
 const CategoryPage: React.FC = () => {
   const { category, section } = useParams<{ category: string; section?: string }>();
@@ -51,31 +51,42 @@ const CategoryPage: React.FC = () => {
           <p className="mt-2 text-neutral-600 max-w-2xl">{meta.subtitle}</p>
 
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {topics.map(t => (
-              <Link
-                key={t.slug}
-                to={`/category/${c}/${t.slug}`}
-                className="group rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm hover:shadow-md transition
-                           no-underline hover:no-underline"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="text-3xl no-underline">{t.icon}</div>
+            {topics.map((t: Topic) => {
+              const accent = t.accent || 'text-neutral-900';
+              const bg = t.bg || 'bg-white';
+              const border = t.border || 'border-neutral-200';
 
-                  <div>
-                    <div className="text-xl font-bold text-neutral-900 group-hover:text-neutral-950 no-underline">
-                      {t.title}
-                    </div>
-                    <div className="mt-1 text-sm text-neutral-600 no-underline">
-                      {t.description}
+              return (
+                <Link
+                  key={t.slug}
+                  to={`/category/${c}/${t.slug}`}
+                  className={[
+                    'group rounded-2xl border p-6 shadow-sm transition',
+                    'hover:shadow-md hover:-translate-y-[1px]',
+                    'no-underline hover:no-underline',
+                    bg,
+                    border,
+                  ].join(' ')}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="text-3xl">{t.icon}</div>
+
+                    <div>
+                      <div className={`text-xl font-extrabold ${accent}`}>
+                        {t.title}
+                      </div>
+                      <div className="mt-1 text-sm text-neutral-600">
+                        {t.description}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="mt-4 text-sm text-blue-600 group-hover:text-blue-800 no-underline">
-                  View topic →
-                </div>
-              </Link>
-            ))}
+                  <div className={`mt-4 text-sm font-semibold ${accent}`}>
+                    View topic →
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </section>
       </main>
@@ -109,11 +120,11 @@ const CategoryPage: React.FC = () => {
               className="rounded-xl border border-neutral-200 bg-white p-6 hover:shadow-md transition
                          no-underline hover:no-underline"
             >
-              <div className="text-xs text-neutral-500 no-underline">
+              <div className="text-xs text-neutral-500">
                 {a.readTime} • {a.difficulty} • {a.publishDate}
               </div>
-              <div className="mt-2 text-xl font-bold text-neutral-900 no-underline">{a.title}</div>
-              <div className="mt-2 text-neutral-600 no-underline">{a.summary}</div>
+              <div className="mt-2 text-xl font-bold text-neutral-900">{a.title}</div>
+              <div className="mt-2 text-neutral-600">{a.summary}</div>
             </Link>
           ))}
 
