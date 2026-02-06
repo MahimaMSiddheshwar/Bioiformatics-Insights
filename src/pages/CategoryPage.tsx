@@ -31,7 +31,11 @@ const CategoryPage: React.FC = () => {
       <div className="container-custom py-10">
         <h1 className="text-3xl font-extrabold text-neutral-900">Category not found</h1>
         <p className="mt-2 text-neutral-600">Go back and choose a valid category.</p>
-        <Link to="/" className="mt-6 inline-block text-blue-600 hover:text-blue-800">
+
+        <Link
+          to="/"
+          className="mt-6 inline-block text-blue-600 hover:text-blue-800 no-underline hover:no-underline"
+        >
           ← Back to Home
         </Link>
       </div>
@@ -51,18 +55,23 @@ const CategoryPage: React.FC = () => {
               <Link
                 key={t.slug}
                 to={`/category/${c}/${t.slug}`}
-                className="group rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm hover:shadow-md transition"
+                className="group rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm hover:shadow-md transition
+                           no-underline hover:no-underline"
               >
                 <div className="flex items-start gap-4">
-                  <div className="text-3xl">{t.icon}</div>
+                  <div className="text-3xl no-underline">{t.icon}</div>
+
                   <div>
-                    <div className="text-xl font-bold text-neutral-900 group-hover:text-neutral-950">
+                    <div className="text-xl font-bold text-neutral-900 group-hover:text-neutral-950 no-underline">
                       {t.title}
                     </div>
-                    <div className="mt-1 text-sm text-neutral-600">{t.description}</div>
+                    <div className="mt-1 text-sm text-neutral-600 no-underline">
+                      {t.description}
+                    </div>
                   </div>
                 </div>
-                <div className="mt-4 text-sm text-blue-600 group-hover:text-blue-800">
+
+                <div className="mt-4 text-sm text-blue-600 group-hover:text-blue-800 no-underline">
                   View topic →
                 </div>
               </Link>
@@ -77,7 +86,10 @@ const CategoryPage: React.FC = () => {
   return (
     <main className="bg-neutral-50">
       <section className="container-custom py-10">
-        <Link to={`/category/${c}`} className="text-sm text-neutral-500 hover:text-neutral-800">
+        <Link
+          to={`/category/${c}`}
+          className="text-sm text-neutral-500 hover:text-neutral-800 no-underline hover:no-underline"
+        >
           ← Back to {meta.title}
         </Link>
 
@@ -94,13 +106,14 @@ const CategoryPage: React.FC = () => {
             <Link
               key={a.id}
               to={`/article/${a.slug}`}
-              className="rounded-xl border border-neutral-200 bg-white p-6 hover:shadow-md transition"
+              className="rounded-xl border border-neutral-200 bg-white p-6 hover:shadow-md transition
+                         no-underline hover:no-underline"
             >
-              <div className="text-xs text-neutral-500">
+              <div className="text-xs text-neutral-500 no-underline">
                 {a.readTime} • {a.difficulty} • {a.publishDate}
               </div>
-              <div className="mt-2 text-xl font-bold text-neutral-900">{a.title}</div>
-              <div className="mt-2 text-neutral-600">{a.summary}</div>
+              <div className="mt-2 text-xl font-bold text-neutral-900 no-underline">{a.title}</div>
+              <div className="mt-2 text-neutral-600 no-underline">{a.summary}</div>
             </Link>
           ))}
 
