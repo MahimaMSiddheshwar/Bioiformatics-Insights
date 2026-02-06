@@ -30,7 +30,7 @@ export const categoryMeta: Record<CategoryKey, { title: string; subtitle: string
   },
   qc: {
     title: 'QC & Compliance',
-    subtitle: 'Working of QC department in pharma, GxP, documentation, deviations, CAPA, and quality systems.',
+    subtitle: 'Workflow of QC department in pharma, GxP, documentation, deviations, CAPA, and quality systems.',
   },
 };
 
