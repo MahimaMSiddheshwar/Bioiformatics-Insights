@@ -1,3 +1,4 @@
+// src/components/Header.tsx
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Search } from 'lucide-react';
@@ -15,8 +16,7 @@ const Header: React.FC = () => {
     const q = query.trim();
     if (!q) return;
     navigate(`/search?q=${encodeURIComponent(q)}`);
-    // keep query (optional). If you want to clear after search, uncomment:
-    // setQuery('');
+    // setQuery(''); // optional: clear after search
   };
 
   return (
@@ -35,9 +35,10 @@ const Header: React.FC = () => {
           <NavLink
             to="/category/bioinformatics"
             className={({ isActive }) =>
-              `${navBase} ${isActive ? 'text-emerald-700 bg-emerald-50' : 'text-neutral-700 hover:text-emerald-700'}`
+              `${navBase} ${
+                isActive ? 'text-emerald-700 bg-emerald-50' : 'text-neutral-700 hover:text-emerald-700'
+              }`
             }
-            style={{ textDecoration: 'none' }}
           >
             <span className="text-base">🧬</span>
             <span className="text-[15px] font-extrabold">Bioinformatics</span>
@@ -46,9 +47,10 @@ const Header: React.FC = () => {
           <NavLink
             to="/category/biotechnology"
             className={({ isActive }) =>
-              `${navBase} ${isActive ? 'text-purple-700 bg-purple-50' : 'text-neutral-700 hover:text-purple-700'}`
+              `${navBase} ${
+                isActive ? 'text-purple-700 bg-purple-50' : 'text-neutral-700 hover:text-purple-700'
+              }`
             }
-            style={{ textDecoration: 'none' }}
           >
             <span className="text-base">🔬</span>
             <span className="text-[15px] font-extrabold">Biotechnology</span>
@@ -57,21 +59,36 @@ const Header: React.FC = () => {
           <NavLink
             to="/category/biopharma"
             className={({ isActive }) =>
-              `${navBase} ${isActive ? 'text-pink-700 bg-pink-50' : 'text-neutral-700 hover:text-pink-700'}`
+              `${navBase} ${
+                isActive ? 'text-pink-700 bg-pink-50' : 'text-neutral-700 hover:text-pink-700'
+              }`
             }
-            style={{ textDecoration: 'none' }}
           >
             <span className="text-base">💊</span>
             <span className="text-[15px] font-extrabold">Biopharma</span>
           </NavLink>
 
-          {/* If you don't have a LearningPaths page yet, either create it or remove this link */}
+          {/* QC tab (you already have category key "qc") */}
+          <NavLink
+            to="/category/qc"
+            className={({ isActive }) =>
+              `${navBase} ${
+                isActive ? 'text-slate-800 bg-slate-100' : 'text-neutral-700 hover:text-slate-800'
+              }`
+            }
+          >
+            <span className="text-base">✅</span>
+            <span className="text-[15px] font-extrabold"> QC</span>
+          </NavLink>
+
+          {/* Learning Paths: only keep if you actually have /learning-paths route */}
           <NavLink
             to="/learning-paths"
             className={({ isActive }) =>
-              `${navBase} ${isActive ? 'text-blue-700 bg-blue-50' : 'text-neutral-700 hover:text-blue-700'}`
+              `${navBase} ${
+                isActive ? 'text-blue-700 bg-blue-50' : 'text-neutral-700 hover:text-blue-700'
+              }`
             }
-            style={{ textDecoration: 'none' }}
           >
             <span className="text-base">🎓</span>
             <span className="text-[15px] font-extrabold">Learnings</span>
@@ -80,9 +97,10 @@ const Header: React.FC = () => {
           <NavLink
             to="/glossary"
             className={({ isActive }) =>
-              `${navBase} ${isActive ? 'text-indigo-700 bg-indigo-50' : 'text-neutral-700 hover:text-indigo-700'}`
+              `${navBase} ${
+                isActive ? 'text-indigo-700 bg-indigo-50' : 'text-neutral-700 hover:text-indigo-700'
+              }`
             }
-            style={{ textDecoration: 'none' }}
           >
             <span className="text-base">📘</span>
             <span className="text-[15px] font-extrabold">Glossary</span>
