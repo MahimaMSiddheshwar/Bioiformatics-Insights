@@ -39,4 +39,24 @@ export const articles: Article[] = [
       },
     ],
   },
+
+  {
+    id: 'bio-002',
+    slug: 'rna-seq-fastq-to-deg',
+    title: 'RNA-seq: FASTQ to Differential Expression',
+    category: 'bioinformatics',
+    section: 'rna-seq',
+    difficulty: 'beginner',
+    readTime: '8 min',
+    author: 'Bioinformatics Insights',
+    publishDate: 'Feb 2026',
+    summary: 'Step-by-step RNA-seq pipeline explained clearly.',
+    sections: [
+      {
+        heading: 'Overview',
+        text:
+          'This article explains the RNA-seq workflow from raw FASTQ files to differential gene expression analysis.',
+      },
+    ],
+  },
 ];

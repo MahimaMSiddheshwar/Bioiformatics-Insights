@@ -1,46 +1,63 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Github, Linkedin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-neutral-900 text-neutral-300 mt-24">
-      <div className="container-custom py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="mt-20 bg-slate-900 text-slate-300">
+
+      {/* Thin blue top line */}
+      <div className="h-[1px] bg-blue-500/40" />
+
+      <div className="max-w-6xl mx-auto px-6 py-6 grid md:grid-cols-3 gap-6 text-sm">
+
+        {/* Brand */}
         <div>
           <h3 className="text-white font-semibold mb-2">
-            Bioinformatics<span className="text-primary-400">Insights</span>
+            BioinformaticsInsights
           </h3>
-          <p className="text-sm">
-            A learning-first platform for genomics, bioinformatics, and
-            computational biology.
+          <p className="text-slate-400">
+            A learning-first platform for genomics, bioinformatics,
+            and computational biology.
           </p>
         </div>
 
+        {/* Explore */}
         <div>
           <h4 className="text-white font-semibold mb-2">Explore</h4>
-          <ul className="space-y-1 text-sm">
-            <li><Link to="/category/bioinformatics">Bioinformatics</Link></li>
-            <li><Link to="/category/biotechnology">Biotechnology</Link></li>
-            <li><Link to="/category/biopharma">Biopharma</Link></li>
-            <li><Link to="/glossary">Glossary</Link></li>
+          <ul className="space-y-1 text-slate-400">
+            <li>Bioinformatics</li>
+            <li>Biotechnology</li>
+            <li>Biopharma</li>
+            <li>Glossary</li>
           </ul>
         </div>
 
+        {/* Connect */}
         <div>
           <h4 className="text-white font-semibold mb-2">Connect</h4>
           <div className="flex gap-4">
-            <a href="https://github.com" target="_blank" rel="noreferrer">
-              <Github />
+            <a
+              href="https://github.com/MahimaMSiddheshwar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              GitHub
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-              <Linkedin />
+            <a
+              href="https://www.linkedin.com/in/mahima-siddheshwar-98a585196"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              LinkedIn
             </a>
           </div>
         </div>
+
       </div>
 
-      <div className="border-t border-neutral-700 text-center py-4 text-xs">
-        © {new Date().getFullYear()} BioinformaticsInsights
+      <div className="text-center text-xs text-slate-500 py-3">
+        © 2026 BioinformaticsInsights
       </div>
     </footer>
   );

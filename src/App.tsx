@@ -11,9 +11,11 @@ import GlossaryPage from './pages/GlossaryPage';
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="min-h-screen bg-neutral-50">
+      <div className="min-h-screen bg-neutral-50 flex flex-col">
         <Header />
-        <main>
+
+        {/* MAIN pushes footer to bottom + prevents overlap issues */}
+        <main className="flex-1 pt-20">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/category/:category" element={<CategoryPage />} />
@@ -23,6 +25,7 @@ const App: React.FC = () => {
             <Route path="/glossary" element={<GlossaryPage />} />
           </Routes>
         </main>
+
         <Footer />
       </div>
     </Router>
