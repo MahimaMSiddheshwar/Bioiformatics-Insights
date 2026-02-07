@@ -1,74 +1,65 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
-
-import { topicsByCategory, categoryMeta, isCategoryKey, Topic } from '../data/topics';
+import { useParams, Link } from 'react-router-dom';
+import { topics, categoryMeta, isCategoryKey, Topic, GroupKey } from '../data/topics';
 
 const CategoryPage: React.FC = () => {
   const { category } = useParams<{ category: string }>();
-  const c = (category || '').toLowerCase();
-  const validCategory = isCategoryKey(c);
 
-  const meta = validCategory ? categoryMeta[c] : null;
-  const topics = validCategory ? topicsByCategory[c] : [];
-
-  if (!validCategory || !meta) {
-    return (
-      <div className="container-custom py-10">
-        <h1 className="text-3xl font-extrabold text-neutral-900">Category not found</h1>
-        <p className="mt-2 text-neutral-600">Go back and choose a valid category.</p>
-        <Link to="/" className="mt-6 inline-block text-blue-600 hover:text-blue-800 no-underline">
-          ← Back to Home
-        </Link>
-      </div>
-    );
+  if (!category || !isCategoryKey(category)) {
+    return <div className="p-8">Invalid category</div>;
   }
 
+  const categoryTopics = topics.filter(t => t.category === category);
+
+  const grouped = categoryTopics.reduce<Record<GroupKey, Topic[]>>(
+    (acc, t) => {
+      acc[t.groupKey] = acc[t.groupKey] || [];
+      acc[t.groupKey].push(t);
+      return acc;
+    },
+    {} as Record<GroupKey, Topic[]>
+  );
+
+  const orderedGroups: GroupKey[] = ['A', 'B', 'C', 'D', 'E'];
+
   return (
-    <main className="bg-neutral-50">
-      <section className="container-custom py-10">
-        <h1 className="text-4xl font-extrabold text-neutral-900">{meta.title}</h1>
-        <p className="mt-2 text-neutral-600 max-w-2xl">{meta.subtitle}</p>
+    <div className="max-w-7xl mx-auto px-6 py-12">
+      <header className="mb-12">
+        <h1 className="text-4xl font-bold">{categoryMeta[category].title}</h1>
+        <p className="mt-2 text-neutral-600">
+          {categoryMeta[category].subtitle}
+        </p>
+      </header>
 
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {topics.map((t: Topic) => {
-            const accent = t.accent || 'text-neutral-900';
-            const bg = t.bg || 'bg-white';
-            const border = t.border || 'border-neutral-200';
+      {orderedGroups.map(groupKey => {
+        const items = grouped[groupKey];
+        if (!items || items.length === 0) return null;
 
-            return (
-              <Link
-                key={t.slug}
-                to={`/category/${c}/${t.slug}`}
-                className={[
-                  'group rounded-2xl border p-6 shadow-sm transition',
-                  'hover:shadow-md hover:-translate-y-[1px]',
-                  'no-underline hover:no-underline',
-                  bg,
-                  border,
-                ].join(' ')}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="text-3xl">{t.icon}</div>
+        return (
+          <section key={groupKey} className="mb-14">
+            <h2 className="text-2xl font-semibold mb-6">
+              {items[0].groupTitle}
+            </h2>
 
-                  <div>
-                    <div className={`text-xl font-extrabold ${accent}`}>
-                      {t.title}
-                    </div>
-                    <div className="mt-1 text-sm text-neutral-700">
-                      {t.description}
-                    </div>
-                  </div>
-                </div>
-
-                <div className={`mt-4 text-sm font-semibold ${accent}`}>
-                  View topic →
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-    </main>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {items.map(t => (
+                <Link
+                  key={t.slug}
+                  to={`/category/${t.category}/${t.groupKey}/${t.slug}`}
+                  className="rounded-xl border border-neutral-200 bg-white p-6 hover:shadow-md transition"
+                >
+                  <div className="text-2xl">{t.icon}</div>
+                  <h3 className="mt-3 font-semibold text-lg">{t.title}</h3>
+                  <p className="mt-1 text-sm text-neutral-600">
+                    {t.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        );
+      })}
+    </div>
   );
 };
 

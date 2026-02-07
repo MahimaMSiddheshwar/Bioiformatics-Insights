@@ -83,7 +83,7 @@ const Header: React.FC = () => {
 
           {/* Learning Paths: only keep if you actually have /learning-paths route */}
           <NavLink
-            to="/learning-paths"
+            to="/learnings"
             className={({ isActive }) =>
               `${navBase} ${
                 isActive ? 'text-blue-700 bg-blue-50' : 'text-neutral-700 hover:text-blue-700'
