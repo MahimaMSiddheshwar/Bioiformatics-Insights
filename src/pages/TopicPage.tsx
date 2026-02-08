@@ -1,7 +1,7 @@
 // src/pages/TopicPage.tsx
 
 import { useParams } from 'react-router-dom';
-import { topicDetails } from '../data/topicDetails';
+import { bioinformaticsDetails, biotechnologyDetails, biopharmaDetails, qcDetails } from '../data';
 import Breadcrumbs from '../components/Breadcrumbs';
 
 const TopicPage = () => {
@@ -10,7 +10,8 @@ const TopicPage = () => {
 
   if (!slug) return <p>Invalid topic</p>;
 
-  const detail = topicDetails.find(d => d.slug === slug);
+  const allDetails = [...bioinformaticsDetails, ...biotechnologyDetails, ...biopharmaDetails, ...qcDetails];
+  const detail = allDetails.find(d => d.slug === slug);
   if (!detail) return <p>Topic not found</p>;
 
   return (
