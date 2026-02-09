@@ -45,6 +45,9 @@ const Footer: React.FC = () => {
             </a>
           </div>
         </div>
+        <div className="mt-3 pt-3 border-t border-slate-800 text-center text-xs text-slate-500">
+          © {currentYear} BioinformaticsInsights
+        </div>
       </div>
     </footer>
   );

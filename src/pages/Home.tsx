@@ -85,18 +85,12 @@ const Home: React.FC = () => {
             <span className="font-semibold text-pink-600"> comprehensive resources</span>.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex justify-center mb-12">
             <Link
               to="/learnings"
               className="px-8 py-4 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 transition-all transform hover:scale-105 shadow-lg"
             >
               Start Learning 🚀
-            </Link>
-            <Link
-              to="/glossary"
-              className="px-8 py-4 bg-white text-emerald-600 font-semibold rounded-xl hover:bg-emerald-50 border-2 border-emerald-600 transition-all transform hover:scale-105 shadow-lg"
-            >
-              Browse Glossary 📚
             </Link>
           </div>
         </div>
