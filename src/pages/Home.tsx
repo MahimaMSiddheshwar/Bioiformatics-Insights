@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DNAHelix from '../components/DNAHelix';
+import DNASequenceTranslator from '../components/DNASequenceTranslator';
 
 const Home: React.FC = () => {
   const features = [
@@ -210,28 +212,66 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-emerald-600 to-emerald-700">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Master Bioinformatics?
-          </h2>
-          <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of learners exploring the intersection of biology and computation
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/learnings"
-              className="px-8 py-4 bg-white text-emerald-700 font-semibold rounded-xl hover:bg-emerald-50 transition-all duration-300 transform hover:scale-105 shadow-xl"
-            >
-              Start Learning Now
-            </Link>
-            <Link
-              to="/glossary"
-              className="px-8 py-4 bg-emerald-800 text-white font-semibold rounded-xl hover:bg-emerald-900 transition-all duration-300 border-2 border-emerald-600"
-            >
-              Browse Glossary
-            </Link>
+      {/* Interactive Bioinformatics Lab */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-emerald-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
+              Ready to Master Bioinformatics?
+            </h2>
+            <p className="text-xl text-neutral-600 mb-8 max-w-3xl mx-auto">
+              Experience the power of computational biology with our interactive tools
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            {/* DNA Helix Animation */}
+            <div className="text-center">
+              <div className="inline-block mb-6">
+                <DNAHelix />
+              </div>
+              <h3 className="text-2xl font-bold text-neutral-900 mb-3">3D DNA Visualization</h3>
+              <p className="text-neutral-600 max-w-md mx-auto">
+                Watch the elegant double helix structure rotate in real-time, representing the fundamental building block of life
+              </p>
+            </div>
+
+            {/* DNA Sequence Translator */}
+            <div>
+              <DNASequenceTranslator />
+            </div>
+          </div>
+
+          <div className="text-center">
+            <div className="inline-flex items-center gap-4 mb-8">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></div>
+                <span className="text-sm text-neutral-600">Live Translation</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                <span className="text-sm text-neutral-600">Real-time Animation</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
+                <span className="text-sm text-neutral-600">Interactive Learning</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/learnings"
+                className="px-8 py-4 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              >
+                Explore Learning Paths 🚀
+              </Link>
+              <Link
+                to="/glossary"
+                className="px-8 py-4 bg-white text-emerald-700 font-semibold rounded-xl hover:bg-emerald-50 transition-all duration-300 border-2 border-emerald-200"
+              >
+                Browse Glossary 📖
+              </Link>
+            </div>
           </div>
         </div>
       </section>
