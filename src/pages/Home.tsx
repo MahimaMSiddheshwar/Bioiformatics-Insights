@@ -88,12 +88,9 @@ const Home: React.FC = () => {
           </p>
 
           <div className="flex justify-center mb-12">
-            <Link
-              to="/learnings"
-              className="px-8 py-4 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 transition-all transform hover:scale-105 shadow-lg"
-            >
+            <button className="px-8 py-4 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 transition-all transform hover:scale-105 shadow-lg cursor-pointer">
               Start Learning 🚀
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -258,13 +255,13 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/learnings"
-                className="px-8 py-4 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
-              >
-                Explore Learning Paths 🚀
-              </Link>
+            <div className="flex items-center justify-center gap-6">
+              {/* Start Learning Icon */}
+              <div className="flex items-center justify-center w-16 h-16 bg-emerald-600 rounded-full hover:bg-emerald-700 transition-all duration-300 transform hover:scale-110 shadow-lg cursor-pointer">
+                <span className="text-2xl">🚀</span>
+              </div>
+              
+              {/* Browse Glossary Link */}
               <Link
                 to="/glossary"
                 className="px-8 py-4 bg-white text-emerald-700 font-semibold rounded-xl hover:bg-emerald-50 transition-all duration-300 border-2 border-emerald-200"
