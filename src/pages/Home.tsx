@@ -88,9 +88,12 @@ const Home: React.FC = () => {
           </p>
 
           <div className="flex justify-center mb-12">
-            <button className="px-8 py-4 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 transition-all transform hover:scale-105 shadow-lg cursor-pointer">
+            <Link
+              to="/learnings"
+              className="px-8 py-4 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 transition-all transform hover:scale-105 shadow-lg"
+            >
               Start Learning 🚀
-            </button>
+            </Link>
           </div>
         </div>
       </section>
