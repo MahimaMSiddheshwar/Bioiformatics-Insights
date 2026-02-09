@@ -1,7 +1,7 @@
 // src/components/Header.tsx
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Search } from 'lucide-react';
+import { Search, Menu, X } from 'lucide-react';
 
 const navBase =
   'inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold transition-colors ' +
@@ -9,6 +9,7 @@ const navBase =
 
 const Header: React.FC = () => {
   const [query, setQuery] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleSearch = (e: React.FormEvent) => {
@@ -28,7 +29,20 @@ const Header: React.FC = () => {
             Bioinformatics<span className="text-emerald-600">Insights</span>
           </span>
           <span className="text-xs font-medium text-neutral-500">Scientific Learning Platform</span>
-        </Link>
+</Link>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden p-2 rounded-lg hover:bg-neutral-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+          aria-label="Toggle navigation menu"
+        >
+          {isMobileMenuOpen ? (
+            <X size={24} className="text-neutral-700" />
+          ) : (
+            <Menu size={24} className="text-neutral-700" />
+          )}
+        </button>
 
         {/* NAV */}
         <nav className="hidden md:flex items-center gap-2">
@@ -118,7 +132,107 @@ const Header: React.FC = () => {
             className="pl-9 pr-4 py-2 text-sm rounded-full border border-neutral-300 bg-white
                        focus:outline-none focus:ring-2 focus:ring-emerald-500 w-64"
           />
-        </form>
+</form>
+
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden fixed top-16 left-0 right-0 bg-white/95 backdrop-blur border-b border-neutral-200 shadow-lg">
+            <nav className="flex flex-col p-4 space-y-2">
+              <NavLink
+                to="/category/bioinformatics"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={({ isActive }) =>
+                  `${navBase} w-full justify-center ${
+                    isActive ? 'text-emerald-700 bg-emerald-50' : 'text-neutral-700 hover:text-emerald-700'
+                  }`
+                }
+              >
+                <span className="text-base">🧬</span>
+                <span className="text-[15px] font-extrabold">Bioinformatics</span>
+              </NavLink>
+
+              <NavLink
+                to="/category/biotechnology"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={({ isActive }) =>
+                  `${navBase} w-full justify-center ${
+                    isActive ? 'text-purple-700 bg-purple-50' : 'text-neutral-700 hover:text-purple-700'
+                  }`
+                }
+              >
+                <span className="text-base">🔬</span>
+                <span className="text-[15px] font-extrabold">Biotechnology</span>
+              </NavLink>
+
+              <NavLink
+                to="/category/biopharma"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={({ isActive }) =>
+                  `${navBase} w-full justify-center ${
+                    isActive ? 'text-pink-700 bg-pink-50' : 'text-neutral-700 hover:text-pink-700'
+                  }`
+                }
+              >
+                <span className="text-base">💊</span>
+                <span className="text-[15px] font-extrabold">Biopharma</span>
+              </NavLink>
+
+              <NavLink
+                to="/category/qc"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={({ isActive }) =>
+                  `${navBase} w-full justify-center ${
+                    isActive ? 'text-slate-800 bg-slate-100' : 'text-neutral-700 hover:text-slate-800'
+                  }`
+                }
+              >
+                <span className="text-base">✅</span>
+                <span className="text-[15px] font-extrabold"> QC</span>
+              </NavLink>
+
+              <NavLink
+                to="/learnings"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={({ isActive }) =>
+                  `${navBase} w-full justify-center ${
+                    isActive ? 'text-blue-700 bg-blue-50' : 'text-neutral-700 hover:text-blue-700'
+                  }`
+                }
+              >
+                <span className="text-base">🎓</span>
+                <span className="text-[15px] font-extrabold">Learnings</span>
+              </NavLink>
+
+              <NavLink
+                to="/glossary"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={({ isActive }) =>
+                  `${navBase} w-full justify-center ${
+                    isActive ? 'text-indigo-700 bg-indigo-50' : 'text-neutral-700 hover:text-indigo-700'
+                  }`
+                }
+              >
+                <span className="text-base">📘</span>
+                <span className="text-[15px] font-extrabold">Glossary</span>
+              </NavLink>
+
+              {/* Mobile Search */}
+              <div className="pt-2 border-t border-neutral-200">
+                <form onSubmit={handleSearch} className="relative">
+                  <Search className="absolute left-3 top-2.5 text-neutral-400" size={16} />
+                  <input
+                    type="text"
+                    placeholder="Search concepts, tools, biology…"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    className="w-full pl-9 pr-4 py-2 text-sm rounded-full border border-neutral-300 bg-white
+                           focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  />
+                </form>
+              </div>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );

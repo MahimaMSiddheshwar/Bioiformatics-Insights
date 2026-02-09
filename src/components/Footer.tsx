@@ -51,6 +51,8 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
+
+
         <div className="mt-6 border-t border-slate-800 pt-4 text-center text-xs text-slate-500">
           © 2026 MahimaSiddheshwar BioinformaticsInsights
         </div>

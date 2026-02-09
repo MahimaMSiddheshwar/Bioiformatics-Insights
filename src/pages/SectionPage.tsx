@@ -2,12 +2,15 @@
 
 import { useParams, Link } from 'react-router-dom';
 import { topics, Topic } from '../data/topics';
+import { useScrollToTop } from '../hooks/useScrollToTop';
 
 const SectionPage = () => {
   const { category, section } = useParams<{
     category: string;
     section: string;
   }>();
+  
+  useScrollToTop();
 
   // section === groupKey (A, B, C, D, E)
   const filtered = topics.filter(

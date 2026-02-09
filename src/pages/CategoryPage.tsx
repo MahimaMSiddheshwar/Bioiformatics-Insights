@@ -1,9 +1,11 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { topics, categoryMeta, isCategoryKey, Topic, GroupKey } from '../data/topics';
+import { useScrollToTop } from '../hooks/useScrollToTop';
 
 const CategoryPage: React.FC = () => {
   const { category } = useParams<{ category: string }>();
+  useScrollToTop();
 
   if (!category || !isCategoryKey(category)) {
     return <div className="p-8">Invalid category</div>;

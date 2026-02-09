@@ -1,9 +1,11 @@
 import React, { useMemo, useState } from 'react';
 import { glossaryTerms } from '../data/glossary';
 import { GlossaryTerm } from '../types/glossary';
+import { useScrollToTop } from '../hooks/useScrollToTop';
 
 const GlossaryPage: React.FC = () => {
   const [search, setSearch] = useState('');
+  useScrollToTop();
 
   const filteredTerms = useMemo(() => {
     const q = search.toLowerCase();
