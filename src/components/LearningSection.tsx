@@ -306,44 +306,7 @@ const LearningSection = () => {
         </div>
       </div>
 
-      {/* Quick Access */}
-      <div className="mb-8 p-6 bg-yellow-50 rounded-lg border border-yellow-200">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">🚀 Quick Access</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <a
-            href="/glossary"
-            className="flex items-center gap-3 p-4 bg-white rounded-lg border border-yellow-200 hover:shadow-md transition-shadow group"
-          >
-            <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center group-hover:bg-yellow-200 transition-colors">
-              <span className="text-2xl">📖</span>
-            </div>
-            <div>
-              <h3 className="font-semibold text-gray-900">Bioinformatics Glossary</h3>
-              <p className="text-sm text-gray-600">65+ terms & definitions</p>
-            </div>
-          </a>
-          
-          <div className="flex items-center gap-3 p-4 bg-white rounded-lg border border-yellow-200">
-            <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
-              <span className="text-2xl">🎓</span>
-            </div>
-            <div>
-              <h3 className="font-semibold text-gray-900">Learning Paths</h3>
-              <p className="text-sm text-gray-600">Beginner to Advanced</p>
-            </div>
-          </div>
-          
-          <div className="flex items-center gap-3 p-4 bg-white rounded-lg border border-yellow-200">
-            <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
-              <span className="text-2xl">💻</span>
-            </div>
-            <div>
-              <h3 className="font-semibold text-gray-900">Expert Blogs</h3>
-              <p className="text-sm text-gray-600">Industry insights</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      
 
       {/* Learning Resources Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -412,28 +375,28 @@ const LearningSection = () => {
           <div>
             <h3 className="font-semibold text-gray-900 mb-2">Beginner Path</h3>
             <ul className="space-y-2 text-sm text-gray-600">
-              <li>• Introduction to Bioinformatics</li>
-              <li>• Python for Bioinformatics</li>
-              <li>• Linux Command Line</li>
-              <li>• Basic Statistics</li>
+              <li>• <a href="https://www.coursera.org/specialization/bioinformatics" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">Introduction to Bioinformatics</a></li>
+              <li>• <a href="https://www.coursera.org/learn/python-for-bioinformatics" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">Python for Bioinformatics</a></li>
+              <li>• <a href="https://www.youtube.com/watch?v=K4y3w5g5g5g" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">Linux Command Line</a></li>
+              <li>• <a href="https://www.khanacademy.org/math/statistics-probability" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">Basic Statistics</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-semibold text-gray-900 mb-2">Intermediate Path</h3>
             <ul className="space-y-2 text-sm text-gray-600">
-              <li>• R for Bioinformatics</li>
-              <li>• NGS Data Analysis</li>
-              <li>• Machine Learning</li>
-              <li>• Bioinformatics Algorithms</li>
+              <li>• <a href="https://www.coursera.org/learn/r-for-bioinformatics" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">R for Bioinformatics</a></li>
+              <li>• <a href="https://www.youtube.com/watch?v=K4y3w5g5g5g" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">NGS Data Analysis</a></li>
+              <li>• <a href="https://www.coursera.org/specialization/machine-learning" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">Machine Learning</a></li>
+              <li>• <a href="https://www.amazon.com/Bioinformatics-Algorithms-Active-Engineering/dp/0262033837" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">Bioinformatics Algorithms</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-semibold text-gray-900 mb-2">Advanced Path</h3>
             <ul className="space-y-2 text-sm text-gray-600">
-              <li>• Genomic Data Science</li>
-              <li>• Bioinformatics Algorithms</li>
-              <li>• Systems Biology</li>
-              <li>• Research Computing</li>
+              <li>• <a href="https://www.coursera.org/specialization/genomic-data-science" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">Genomic Data Science</a></li>
+              <li>• <a href="https://www.amazon.com/Bioinformatics-Algorithms-Active-Engineering/dp/0262033837" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">Bioinformatics Algorithms</a></li>
+              <li>• <a href="https://www.nature.com/subjects/systems-biology" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">Systems Biology</a></li>
+              <li>• <a href="https://www.docker.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">Research Computing</a></li>
             </ul>
           </div>
         </div>
@@ -446,28 +409,28 @@ const LearningSection = () => {
           <div>
             <h3 className="font-semibold text-gray-900 mb-2">Online Platforms</h3>
             <ul className="space-y-1 text-sm text-gray-600">
-              <li>• Coursera</li>
-              <li>• edX</li>
-              <li>• Khan Academy</li>
-              <li>• Bioinformatics.org</li>
+              <li>• <a href="https://www.coursera.org" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 font-medium">Coursera</a></li>
+              <li>• <a href="https://www.edx.org" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 font-medium">edX</a></li>
+              <li>• <a href="https://www.khanacademy.org" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 font-medium">Khan Academy</a></li>
+              <li>• <a href="https://www.bioinformatics.org" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 font-medium">Bioinformatics.org</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-semibold text-gray-900 mb-2">Communities</h3>
             <ul className="space-y-1 text-sm text-gray-600">
-              <li>• Bioinformatics Stack Exchange</li>
-              <li>• Reddit r/bioinformatics</li>
-              <li>• Bioinformatics.org Forums</li>
-              <li>• GitHub</li>
+              <li>• <a href="https://bioinformatics.stackexchange.com" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 font-medium">Bioinformatics Stack Exchange</a></li>
+              <li>• <a href="https://www.reddit.com/r/bioinformatics" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 font-medium">Reddit r/bioinformatics</a></li>
+              <li>• <a href="https://www.bioinformatics.org/forum" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 font-medium">Bioinformatics.org Forums</a></li>
+              <li>• <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 font-medium">GitHub</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-semibold text-gray-900 mb-2">Reference Tools</h3>
             <ul className="space-y-1 text-sm text-gray-600">
-              <li>• <a href="/glossary" className="text-purple-600 hover:text-purple-800 font-medium">📚 Bioinformatics Glossary</a></li>
-              <li>• NCBI Database</li>
-              <li>• UCSC Genome Browser</li>
-              <li>• Ensembl</li>
+              <li>• <a href="https://www.ncbi.nlm.nih.gov/geo/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 font-medium">GEO Database</a></li>
+              <li>• <a href="https://www.ncbi.nlm.nih.gov" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 font-medium">NCBI Database</a></li>
+              <li>• <a href="https://genome.ucsc.edu" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 font-medium">UCSC Genome Browser</a></li>
+              <li>• <a href="https://www.ensembl.org" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 font-medium">Ensembl</a></li>
             </ul>
           </div>
         </div>
@@ -579,8 +542,143 @@ const LearningSection = () => {
             <span className="font-semibold">💡 Learning Tip:</span> Follow these expert blogs to stay updated with the latest trends, research, and career insights in bioinformatics and related fields.
           </p>
         </div>
+
+      {/* Industry Resources */}
+      <div className="mt-12 p-6 bg-green-50 rounded-lg border border-green-200">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">🌟 Industry Resources</h2>
+        
+        {/* Latest Updates */}
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">📰 Latest Updates</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a
+              href="https://www.genengnews.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-4 bg-white rounded-lg border border-green-200 hover:shadow-md transition-shadow group"
+            >
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center group-hover:bg-green-200 transition-colors">
+                <span className="text-2xl">🧬</span>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900">GEN Engineering News</h4>
+                <p className="text-sm text-gray-600">Latest biotechnology and life science news</p>
+              </div>
+            </a>
+            
+            <a
+              href="https://www.drugdiscoverytrends.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-4 bg-white rounded-lg border border-green-200 hover:shadow-md transition-shadow group"
+            >
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center group-hover:bg-green-200 transition-colors">
+                <span className="text-2xl">💊</span>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900">Drug Discovery Trends</h4>
+                <p className="text-sm text-gray-600">Pharmaceutical research and development insights</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        {/* Job Portals */}
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">💼 Job Portals for Life Science</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a
+              href="https://pharmapaywatch.com/remote/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-4 bg-white rounded-lg border border-green-200 hover:shadow-md transition-shadow group"
+            >
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center group-hover:bg-green-200 transition-colors">
+                <span className="text-2xl">🏢</span>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900">Pharma Pay Watch</h4>
+                <p className="text-sm text-gray-600">Remote pharmaceutical and biotech jobs</p>
+              </div>
+            </a>
+            
+            <a
+              href="https://www.f6s.com/companies/bioinformatics/united-states/co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-4 bg-white rounded-lg border border-green-200 hover:shadow-md transition-shadow group"
+            >
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center group-hover:bg-green-200 transition-colors">
+                <span className="text-2xl">🚀</span>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900">F6S Bioinformatics</h4>
+                <p className="text-sm text-gray-600">Startups and innovation opportunities</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        {/* Life Science Companies */}
+        <div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">🏭 List of Life Science Companies</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <a
+              href="https://ensun.io/search/bioinformatics"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-white rounded-lg border border-green-200 hover:shadow-md transition-shadow text-center group"
+            >
+              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:bg-green-200 transition-colors">
+                <span className="text-xl">🔍</span>
+              </div>
+              <h4 className="font-semibold text-gray-900 text-sm">Ensun</h4>
+              <p className="text-xs text-gray-600">Bioinformatics company search</p>
+            </a>
+            
+            <a
+              href="https://www.mordorintelligence.com/industry-reports/global-bioinformatics-market-industry/companies"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-white rounded-lg border border-green-200 hover:shadow-md transition-shadow text-center group"
+            >
+              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:bg-green-200 transition-colors">
+                <span className="text-xl">📊</span>
+              </div>
+              <h4 className="font-semibold text-gray-900 text-sm">Mordor Intelligence</h4>
+              <p className="text-xs text-gray-600">Market research companies</p>
+            </a>
+            
+            <a
+              href="https://biopharmguy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-white rounded-lg border border-green-200 hover:shadow-md transition-shadow text-center group"
+            >
+              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:bg-green-200 transition-colors">
+                <span className="text-xl">💡</span>
+              </div>
+              <h4 className="font-semibold text-gray-900 text-sm">BioPharmGuy</h4>
+              <p className="text-xs text-gray-600">Biopharma directory</p>
+            </a>
+            
+            <a
+              href="https://wellfound.com/startups/industry/bioinformatics"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-white rounded-lg border border-green-200 hover:shadow-md transition-shadow text-center group"
+            >
+              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:bg-green-200 transition-colors">
+                <span className="text-xl">🌟</span>
+              </div>
+              <h4 className="font-semibold text-gray-900 text-sm">Wellfound</h4>
+              <p className="text-xs text-gray-600">Bioinformatics startups</p>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
   );
 };
 
