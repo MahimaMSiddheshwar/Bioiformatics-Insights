@@ -5,102 +5,121 @@ const DNAHelix: React.FC = () => {
     <>
       <style>{`
         @keyframes rotate {
-          from { transform: rotateY(0deg) rotateX(15deg); }
-          to { transform: rotateY(360deg) rotateX(15deg); }
+          from { transform: rotateY(0deg) rotateX(-15deg); }
+          to { transform: rotateY(360deg) rotateX(-15deg); }
         }
         
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
+          50% { transform: translateY(-5px); }
         }
         
-        .dna-helix {
+        .dna-container {
           transform-style: preserve-3d;
           animation: rotate 8s linear infinite, float 3s ease-in-out infinite;
+          perspective: 800px;
         }
         
-        .dna-strand {
+        .helix-point {
           position: absolute;
-          width: 100%;
-          height: 100%;
-          transform-style: preserve-3d;
-        }
-        
-        .dna-base {
-          position: absolute;
-          width: 8px;
-          height: 8px;
+          width: 6px;
+          height: 6px;
           border-radius: 50%;
           left: 50%;
-          transform: translateX(-50%);
+          top: 50%;
+          transform: translate(-50%, -50%);
         }
         
-        .backbone {
+        .connector {
           position: absolute;
-          width: 4px;
-          height: 100%;
+          height: 1px;
+          background: rgba(255, 255, 255, 0.4);
           left: 50%;
-          transform: translateX(-50%);
-          border-radius: 2px;
+          top: 50%;
+          transform-origin: left center;
         }
       `}</style>
-      <div className="relative w-32 h-32 md:w-48 md:h-48">
-      
-      <div className="dna-helix relative w-full h-full">
-        {/* DNA Backbone */}
-        <div className="backbone bg-gradient-to-b from-emerald-400 to-cyan-500" 
-             style={{ transform: 'translateX(-50%) translateZ(-20px)' }} />
-        <div className="backbone bg-gradient-to-b from-emerald-400 to-cyan-500" 
-             style={{ transform: 'translateX(-50%) translateZ(20px)' }} />
-        
-        {/* DNA Bases - First strand */}
-        <div className="dna-strand">
-          <div className="dna-base bg-red-500" style={{ top: '10%', transform: 'translateX(-50%) translateZ(15px) rotateY(0deg)' }} />
-          <div className="dna-base bg-blue-500" style={{ top: '20%', transform: 'translateX(-50%) translateZ(15px) rotateY(45deg)' }} />
-          <div className="dna-base bg-yellow-500" style={{ top: '30%', transform: 'translateX(-50%) translateZ(15px) rotateY(90deg)' }} />
-          <div className="dna-base bg-green-500" style={{ top: '40%', transform: 'translateX(-50%) translateZ(15px) rotateY(135deg)' }} />
-          <div className="dna-base bg-red-500" style={{ top: '50%', transform: 'translateX(-50%) translateZ(15px) rotateY(180deg)' }} />
-          <div className="dna-base bg-blue-500" style={{ top: '60%', transform: 'translateX(-50%) translateZ(15px) rotateY(225deg)' }} />
-          <div className="dna-base bg-yellow-500" style={{ top: '70%', transform: 'translateX(-50%) translateZ(15px) rotateY(270deg)' }} />
-          <div className="dna-base bg-green-500" style={{ top: '80%', transform: 'translateX(-50%) translateZ(15px) rotateY(315deg)' }} />
-          <div className="dna-base bg-red-500" style={{ top: '90%', transform: 'translateX(-50%) translateZ(15px) rotateY(360deg)' }} />
+      <div className="relative w-32 h-40 md:w-40 md:h-48">
+        <div className="dna-container relative w-full h-full">
+          {/* First strand - blue helix */}
+          {[...Array(20)].map((_, i) => {
+            const angle = (i * 18) * Math.PI / 180; // 18 degrees per point
+            const radius = 25;
+            const height = (i - 10) * 8; // Center the helix
+            const x = Math.cos(angle) * radius;
+            const z = Math.sin(angle) * radius;
+            
+            return (
+              <div key={`strand1-${i}`}>
+                <div
+                  className="helix-point bg-blue-500"
+                  style={{
+                    transform: `translate(-50%, -50%) translate3d(${x}px, ${height}px, ${z}px)`
+                  }}
+                />
+                {/* Base */}
+                <div
+                  className="helix-point bg-blue-300"
+                  style={{
+                    width: '4px',
+                    height: '4px',
+                    transform: `translate(-50%, -50%) translate3d(${x + 8}px, ${height}px, ${z}px)`
+                  }}
+                />
+              </div>
+            );
+          })}
+          
+          {/* Second strand - red helix (opposite phase) */}
+          {[...Array(20)].map((_, i) => {
+            const angle = (i * 18 + 180) * Math.PI / 180; // 180 degrees offset
+            const radius = 25;
+            const height = (i - 10) * 8; // Center the helix
+            const x = Math.cos(angle) * radius;
+            const z = Math.sin(angle) * radius;
+            
+            return (
+              <div key={`strand2-${i}`}>
+                <div
+                  className="helix-point bg-red-500"
+                  style={{
+                    transform: `translate(-50%, -50%) translate3d(${x}px, ${height}px, ${z}px)`
+                  }}
+                />
+                {/* Base */}
+                <div
+                  className="helix-point bg-red-300"
+                  style={{
+                    width: '4px',
+                    height: '4px',
+                    transform: `translate(-50%, -50%) translate3d(${x - 8}px, ${height}px, ${z}px)`
+                  }}
+                />
+              </div>
+            );
+          })}
+          
+          {/* Connectors between strands */}
+          {[...Array(10)].map((_, i) => {
+            const angle = (i * 36) * Math.PI / 180; // 36 degrees for connectors
+            const radius = 25;
+            const height = (i - 5) * 16; // Center the connectors
+            const x = Math.cos(angle) * radius;
+            const z = Math.sin(angle) * radius;
+            
+            return (
+              <div key={`connector-${i}`}>
+                <div
+                  className="connector"
+                  style={{
+                    width: '16px',
+                    transform: `translate(-50%, -50%) translate3d(${x - 8}px, ${height}px, ${z}px) rotateY(${angle * 180 / Math.PI}deg)`
+                  }}
+                />
+              </div>
+            );
+          })}
         </div>
-        
-        {/* DNA Bases - Second strand (complementary) */}
-        <div className="dna-strand">
-          <div className="dna-base bg-green-500" style={{ top: '10%', transform: 'translateX(-50%) translateZ(-15px) rotateY(0deg)' }} />
-          <div className="dna-base bg-yellow-500" style={{ top: '20%', transform: 'translateX(-50%) translateZ(-15px) rotateY(45deg)' }} />
-          <div className="dna-base bg-blue-500" style={{ top: '30%', transform: 'translateX(-50%) translateZ(-15px) rotateY(90deg)' }} />
-          <div className="dna-base bg-red-500" style={{ top: '40%', transform: 'translateX(-50%) translateZ(-15px) rotateY(135deg)' }} />
-          <div className="dna-base bg-green-500" style={{ top: '50%', transform: 'translateX(-50%) translateZ(-15px) rotateY(180deg)' }} />
-          <div className="dna-base bg-yellow-500" style={{ top: '60%', transform: 'translateX(-50%) translateZ(-15px) rotateY(225deg)' }} />
-          <div className="dna-base bg-blue-500" style={{ top: '70%', transform: 'translateX(-50%) translateZ(-15px) rotateY(270deg)' }} />
-          <div className="dna-base bg-red-500" style={{ top: '80%', transform: 'translateX(-50%) translateZ(-15px) rotateY(315deg)' }} />
-          <div className="dna-base bg-green-500" style={{ top: '90%', transform: 'translateX(-50%) translateZ(-15px) rotateY(360deg)' }} />
-        </div>
-        
-        {/* Connecting lines between bases */}
-        <div className="absolute inset-0" style={{ transformStyle: 'preserve-3d' }}>
-          <div className="absolute w-8 h-px bg-gray-400 opacity-30" 
-               style={{ top: '10%', left: '50%', transform: 'translateX(-50%) rotateZ(0deg)' }} />
-          <div className="absolute w-8 h-px bg-gray-400 opacity-30" 
-               style={{ top: '20%', left: '50%', transform: 'translateX(-50%) rotateZ(10deg)' }} />
-          <div className="absolute w-8 h-px bg-gray-400 opacity-30" 
-               style={{ top: '30%', left: '50%', transform: 'translateX(-50%) rotateZ(-10deg)' }} />
-          <div className="absolute w-8 h-px bg-gray-400 opacity-30" 
-               style={{ top: '40%', left: '50%', transform: 'translateX(-50%) rotateZ(15deg)' }} />
-          <div className="absolute w-8 h-px bg-gray-400 opacity-30" 
-               style={{ top: '50%', left: '50%', transform: 'translateX(-50%) rotateZ(-15deg)' }} />
-          <div className="absolute w-8 h-px bg-gray-400 opacity-30" 
-               style={{ top: '60%', left: '50%', transform: 'translateX(-50%) rotateZ(20deg)' }} />
-          <div className="absolute w-8 h-px bg-gray-400 opacity-30" 
-               style={{ top: '70%', left: '50%', transform: 'translateX(-50%) rotateZ(-20deg)' }} />
-          <div className="absolute w-8 h-px bg-gray-400 opacity-30" 
-               style={{ top: '80%', left: '50%', transform: 'translateX(-50%) rotateZ(25deg)' }} />
-          <div className="absolute w-8 h-px bg-gray-400 opacity-30" 
-               style={{ top: '90%', left: '50%', transform: 'translateX(-50%) rotateZ(-25deg)' }} />
-        </div>
-      </div>
       </div>
     </>
   );
