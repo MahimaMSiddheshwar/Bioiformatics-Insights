@@ -13,6 +13,15 @@ interface LearningResource {
   category: 'Bioinformatics' | 'Biotechnology' | 'Biopharma' | 'QC' | 'Programming' | 'General';
 }
 
+interface TechnologyHighlight {
+  title: string;
+  source: string;
+  summary: string;
+  link: string;
+  impact: string;
+  tags: string[];
+}
+
 const learningResources: LearningResource[] = [
   // Bioinformatics Courses
   {
@@ -182,6 +191,41 @@ const learningResources: LearningResource[] = [
     url: "https://www.nature.com/articles/d41586-023-023456-2",
     tags: ['Machine Learning', 'Genomics', 'AI'],
     category: 'Bioinformatics'
+  }
+];
+
+const technologyHighlights: TechnologyHighlight[] = [
+  {
+    title: 'RAEFISH Enables Tissue-Scale Spatial Multi-omics',
+    source: 'Cell (2025)',
+    summary: 'RAEFISH combines rapid enzymatic amplification with multiplexed FISH cycles to profile RNA and protein targets across intact tissues without aggressive clearing steps.',
+    link: 'https://www.cell.com/cell/fulltext/S0092-8674(25)01037-2',
+    impact: 'Gives translational labs a faster route to create spatial atlases with subcellular detail in complex organs.',
+    tags: ['Spatial Transcriptomics', 'High-Plex Imaging', 'Multi-omics']
+  },
+  {
+    title: 'Illumina Spatial Technology Connects Slides to Sequencers',
+    source: 'Illumina Press Release (2025)',
+    summary: 'Illumina unveiled cartridge-based slide chemistry that feeds spatially barcoded tissue sections directly into NovaSeq X workflows for sequencing-ready data.',
+    link: 'https://www.illumina.com/company/news-center/press-releases/press-release-details.html?newsid=10a7ec49-da37-40d8-8aff-0e8e149b9534',
+    impact: 'Reduces turnaround time between pathology review and transcriptome-scale quantification for clinical research cores.',
+    tags: ['NGS', 'Automation', 'Spatial Transcriptomics']
+  },
+  {
+    title: 'Spatial Omics Rewrites Tumor Microenvironment Playbooks',
+    source: 'Cancer Cell (2025)',
+    summary: 'A Cancer Cell review synthesizes how paired RNA/protein spatial omics resolves immune niches, vascular mimicry, and therapeutic resistance circuits in solid tumors.',
+    link: 'https://www.cell.com/cancer-cell/fulltext/S1535-6108(25)00543-4',
+    impact: 'Clarifies which spatial biomarkers should move fastest into clinical trials and companion diagnostics.',
+    tags: ['Cancer', 'Spatial Omics', 'Biomarkers']
+  },
+  {
+    title: 'Beyond Cell Atlases With Hybrid Spatial AI',
+    source: 'Nature Biotechnology (2025)',
+    summary: 'Nature Biotechnology highlights frameworks that merge spatial omics, imaging mass spec, and AI-driven priors to build actionable digital twins of tissues.',
+    link: 'https://www.nature.com/articles/s41587-025-02699-5',
+    impact: 'Points teams toward interoperable standards for sharing spatial datasets and training generative tissue models.',
+    tags: ['AI', 'Spatial Biology', 'Data Standards']
   }
 ];
 
@@ -399,6 +443,58 @@ const LearningSection = () => {
               <li>• <a href="https://www.docker.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">Research Computing</a></li>
             </ul>
           </div>
+        </div>
+      </div>
+
+      {/* Recent Technology Spotlight */}
+      <div className="mt-12 p-6 rounded-2xl border border-slate-200 bg-gradient-to-r from-slate-50 via-white to-emerald-50">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-emerald-600 mb-2">Recent Technology</p>
+            <h2 className="text-3xl font-bold text-gray-900">Spatial Biology Breakthroughs</h2>
+            <p className="text-sm text-gray-600 mt-2 max-w-2xl">
+              Curated highlights from peer-reviewed journals and industry announcements capturing how spatial omics, automation,
+              and AI are reshaping translational bioinformatics.
+            </p>
+          </div>
+          <span className="self-start md:self-auto px-4 py-2 text-sm font-semibold text-emerald-900 bg-emerald-100 rounded-full">
+            Learning Lab Spotlight
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {technologyHighlights.map((tech, index) => (
+            <article
+              key={tech.title}
+              className="h-full bg-white/80 backdrop-blur rounded-xl p-5 border border-emerald-100 shadow-sm hover:shadow-lg transition-shadow"
+            >
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xs font-semibold text-emerald-700">{tech.source}</span>
+                <span className="text-xs text-gray-400">#{String(index + 1).padStart(2, '0')}</span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">{tech.title}</h3>
+              <p className="text-sm text-gray-600 mb-3">{tech.summary}</p>
+              <p className="text-sm text-gray-800 font-medium mb-4">{tech.impact}</p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {tech.tags.map((tag) => (
+                  <span key={tag} className="px-2 py-1 text-xs bg-emerald-50 text-emerald-700 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={tech.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:text-emerald-900"
+              >
+                Read Update
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </a>
+            </article>
+          ))}
         </div>
       </div>
 
