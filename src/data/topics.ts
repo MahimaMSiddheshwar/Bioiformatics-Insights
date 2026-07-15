@@ -481,6 +481,51 @@ export const topics: Topic[] = [
     description: 'Accuracy, traceability, and trust.',
     icon: '📁',
   },
+  /* =====================================================
+     3️⃣ BIOPHARMA
+  ===================================================== */
+
+  /* A. Drug Discovery */
+  {
+    category: 'biopharma',
+    groupKey: 'A',
+    groupTitle: 'Drug Discovery',
+    slug: 'Drug-discovery-pipeline',
+    title: 'Drug Discovery Pipeline',
+    description: 'From target identification to lead optimization.',
+    icon: '🎯',
+  },
+  {
+    category: 'biopharma',
+    groupKey: 'A',
+    groupTitle: 'Drug Discovery',
+    slug: 'Preclinical-development',
+    title: 'Preclinical Development',
+    description: 'Safety and efficacy testing before clinical trials.',
+    icon: '🧫',
+  },
+
+  /* B. Clinical Development */
+  {
+    category: 'biopharma',
+    groupKey: 'B',
+    groupTitle: 'Clinical Development',
+    slug: 'Clinical-trials-phases',
+    title: 'Clinical Trial Phases',
+    description: 'Human studies from Phase I to approval.',
+    icon: '🩺',
+  },
+  {
+    category: 'biopharma',
+    groupKey: 'B',
+    groupTitle: 'Clinical Development',
+    slug: 'Biologics-manufacturing',
+    title: 'Biologics Manufacturing',
+    description: 'Large-scale production of biologic drugs.',
+    icon: '🏭',
+  },
+
+  /* C. Translational Science */
   {
     category: 'biopharma',
     groupKey: 'C',
@@ -527,6 +572,24 @@ export const topics: Topic[] = [
     title: 'Post-market Surveillance',
     description: 'Safety monitoring after approval.',
     icon: '🔍',
+  },
+  {
+    category: 'biopharma',
+    groupKey: 'D',
+    groupTitle: 'Regulatory & Quality',
+    slug: 'Regulatory-affairs',
+    title: 'Regulatory Affairs',
+    description: 'Navigating regulatory requirements and submissions.',
+    icon: '📜',
+  },
+  {
+    category: 'biopharma',
+    groupKey: 'D',
+    groupTitle: 'Regulatory & Quality',
+    slug: 'Pharmacovigilance',
+    title: 'Pharmacovigilance',
+    description: 'Drug safety monitoring and risk management.',
+    icon: '🚨',
   },
 
   /* =====================================================

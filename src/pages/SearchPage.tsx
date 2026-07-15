@@ -1,11 +1,25 @@
 import React, { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { Search } from 'lucide-react';
 import { articles } from '../data/articles';
 import { Article } from '../types/article';
+import { topics, categoryMeta, Topic } from '../data/topics';
 
 const SearchPage: React.FC = () => {
-  const [query, setQuery] = useState('');
+  const [searchParams] = useSearchParams();
+  const [query, setQuery] = useState(searchParams.get('q') ?? '');
+
+  const filteredTopics = useMemo(() => {
+    if (!query.trim()) return [];
+
+    const lowerQuery = query.toLowerCase();
+
+    return topics.filter((topic: Topic) =>
+      topic.title.toLowerCase().includes(lowerQuery) ||
+      topic.description.toLowerCase().includes(lowerQuery) ||
+      topic.groupTitle.toLowerCase().includes(lowerQuery)
+    );
+  }, [query]);
 
   const filteredArticles = useMemo(() => {
     if (!query.trim()) return [];
@@ -30,6 +44,8 @@ const SearchPage: React.FC = () => {
     });
   }, [query]);
 
+  const totalResults = filteredTopics.length + filteredArticles.length;
+
   return (
     <div className="min-h-screen bg-neutral-50">
       <div className="container-custom py-10">
@@ -51,40 +67,79 @@ const SearchPage: React.FC = () => {
         {query && (
           <>
             <p className="text-sm text-neutral-600 mb-6">
-              {filteredArticles.length} result(s) found
+              {totalResults} result(s) found
             </p>
 
-            {filteredArticles.length === 0 && (
+            {totalResults === 0 && (
               <p className="text-neutral-500">
-                No matching articles found.
+                No matching topics or articles found.
               </p>
             )}
           </>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filteredArticles.map(article => (
-            <Link
-              key={article.id}
-              to={`/article/${article.slug}`}
-              className="bg-white rounded-xl border border-neutral-200 p-6 hover:shadow-md transition"
-            >
-              <h2 className="text-xl font-semibold mb-2">
-                {article.title}
-              </h2>
+        {filteredTopics.length > 0 && (
+          <div className="mb-10">
+            <h2 className="text-lg font-semibold text-neutral-900 mb-4">
+              Topics
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {filteredTopics.map(topic => (
+                <Link
+                  key={topic.slug}
+                  to={`/category/${topic.category}/${topic.groupKey}/${topic.slug}`}
+                  className="bg-white rounded-xl border border-neutral-200 p-6 hover:shadow-md transition"
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl">{topic.icon}</span>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-1">
+                        {topic.title}
+                      </h3>
+                      <p className="text-neutral-600 text-sm mb-3">
+                        {topic.description}
+                      </p>
+                      <span className="text-xs font-medium text-emerald-700 bg-emerald-50 px-2 py-1 rounded-full">
+                        {categoryMeta[topic.category].title}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
-              <p className="text-neutral-600 text-sm mb-3">
-                {article.summary}
-              </p>
+        {filteredArticles.length > 0 && (
+          <div>
+            <h2 className="text-lg font-semibold text-neutral-900 mb-4">
+              Articles
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {filteredArticles.map(article => (
+                <Link
+                  key={article.id}
+                  to={`/article/${article.slug}`}
+                  className="bg-white rounded-xl border border-neutral-200 p-6 hover:shadow-md transition"
+                >
+                  <h3 className="text-xl font-semibold mb-2">
+                    {article.title}
+                  </h3>
 
-              <div className="text-xs text-neutral-500 flex gap-4">
-                <span>{article.category}</span>
-                <span>{article.readTime}</span>
-                <span className="capitalize">{article.difficulty}</span>
-              </div>
-            </Link>
-          ))}
-        </div>
+                  <p className="text-neutral-600 text-sm mb-3">
+                    {article.summary}
+                  </p>
+
+                  <div className="text-xs text-neutral-500 flex gap-4">
+                    <span>{article.category}</span>
+                    <span>{article.readTime}</span>
+                    <span className="capitalize">{article.difficulty}</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

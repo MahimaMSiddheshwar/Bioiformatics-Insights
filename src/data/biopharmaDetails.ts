@@ -163,5 +163,77 @@ export const biopharmaDetails: TopicDetail[] = [
         caption: 'Biomarker testing for personalized therapy'
       }
     ]
+  },
+  {
+    slug: 'FDA-EMA-basics',
+    summary: 'Global regulatory agencies and approvals.',
+    content: [
+      'FDA structure: CDER, CBER, and review divisions',
+      'EMA structure and the centralized European approval procedure',
+      'Key approval pathways: standard, priority, and accelerated review',
+      'Comparing US and EU submission requirements and timelines',
+      'Other major agencies: PMDA (Japan), NMPA (China), Health Canada'
+    ],
+    figures: [
+      {
+        src: '/images/topics/fda_ema_comparison.png',
+        alt: 'FDA and EMA comparison',
+        caption: 'Side-by-side overview of US and EU regulatory pathways'
+      }
+    ]
+  },
+  {
+    slug: 'CMC',
+    summary: 'Manufacturing and quality documentation.',
+    content: [
+      'Chemistry, Manufacturing, and Controls (CMC) scope and purpose',
+      'Drug substance and drug product specifications',
+      'Manufacturing process description and control strategy',
+      'Analytical method validation and stability data',
+      'CMC sections in IND, NDA, and BLA submissions'
+    ],
+    figures: [
+      {
+        src: '/images/topics/cmc_dossier_structure.png',
+        alt: 'CMC dossier structure',
+        caption: 'How CMC documentation fits into a regulatory submission'
+      }
+    ]
+  },
+  {
+    slug: 'Stability-studies',
+    summary: 'Shelf-life and degradation testing.',
+    content: [
+      'ICH stability testing guidelines (Q1A-Q1F)',
+      'Long-term, intermediate, and accelerated storage conditions',
+      'Degradation pathways and stability-indicating methods',
+      'Establishing shelf life and expiration dating',
+      'Photostability and in-use stability studies'
+    ],
+    figures: [
+      {
+        src: '/images/topics/stability_study_design.png',
+        alt: 'Stability study design',
+        caption: 'ICH storage conditions and testing timepoints'
+      }
+    ]
+  },
+  {
+    slug: 'Post-market-surveillance',
+    summary: 'Safety monitoring after approval.',
+    content: [
+      'Post-marketing requirements and commitments (PMRs/PMCs)',
+      'Real-world evidence and observational safety studies',
+      'Signal detection across spontaneous reporting systems',
+      'Risk-benefit reassessment throughout the product lifecycle',
+      'Label updates, safety communications, and market withdrawal triggers'
+    ],
+    figures: [
+      {
+        src: '/images/topics/post_market_lifecycle.png',
+        alt: 'Post-market surveillance lifecycle',
+        caption: 'Ongoing safety monitoring after regulatory approval'
+      }
+    ]
   }
 ];
