@@ -2,10 +2,12 @@ import React, { useMemo, useState } from 'react';
 import { glossaryTerms } from '../data/glossary';
 import { GlossaryTerm } from '../types/glossary';
 import { useScrollToTop } from '../hooks/useScrollToTop';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 const GlossaryPage: React.FC = () => {
   const [search, setSearch] = useState('');
   useScrollToTop();
+  useDocumentTitle('Glossary', 'Browse 65+ scientific terms spanning bioinformatics, biotechnology, biopharma, and quality control.');
 
   const filteredTerms = useMemo(() => {
     const q = search.toLowerCase();

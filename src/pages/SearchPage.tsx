@@ -4,10 +4,12 @@ import { Search } from 'lucide-react';
 import { articles } from '../data/articles';
 import { Article } from '../types/article';
 import { topics, categoryMeta, Topic } from '../data/topics';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 const SearchPage: React.FC = () => {
   const [searchParams] = useSearchParams();
   const [query, setQuery] = useState(searchParams.get('q') ?? '');
+  useDocumentTitle('Search', 'Search topics and articles across bioinformatics, biotechnology, biopharma, and quality control.');
 
   const filteredTopics = useMemo(() => {
     if (!query.trim()) return [];

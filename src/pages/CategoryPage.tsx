@@ -2,16 +2,23 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { topics, categoryMeta, isCategoryKey, Topic, GroupKey } from '../data/topics';
 import { useScrollToTop } from '../hooks/useScrollToTop';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 const CategoryPage: React.FC = () => {
   const { category } = useParams<{ category: string }>();
   useScrollToTop();
 
-  if (!category || !isCategoryKey(category)) {
+  const validCategory = category && isCategoryKey(category) ? category : undefined;
+  useDocumentTitle(
+    validCategory ? categoryMeta[validCategory].title : undefined,
+    validCategory ? categoryMeta[validCategory].subtitle : undefined
+  );
+
+  if (!validCategory) {
     return <div className="p-8">Invalid category</div>;
   }
 
-  const categoryTopics = topics.filter(t => t.category === category);
+  const categoryTopics = topics.filter(t => t.category === validCategory);
 
   const grouped = categoryTopics.reduce<Record<GroupKey, Topic[]>>(
     (acc, t) => {
@@ -27,9 +34,9 @@ const CategoryPage: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
       <header className="mb-12">
-        <h1 className="text-4xl font-bold">{categoryMeta[category].title}</h1>
+        <h1 className="text-4xl font-bold">{categoryMeta[validCategory].title}</h1>
         <p className="mt-2 text-neutral-600">
-          {categoryMeta[category].subtitle}
+          {categoryMeta[validCategory].subtitle}
         </p>
       </header>
 

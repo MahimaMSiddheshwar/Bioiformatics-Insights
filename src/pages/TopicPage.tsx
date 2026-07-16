@@ -6,19 +6,21 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import FigureImage from '../components/FigureImage';
 import TopicContent from '../components/TopicContent';
 import { useScrollToTop } from '../hooks/useScrollToTop';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 const TopicPage = () => {
   const params = useParams<{ slug?: string }>();
   const slug = params.slug;
   useScrollToTop();
 
-  if (!slug) return <p>Invalid topic</p>;
-
   const allDetails = [...bioinformaticsDetails, ...biotechnologyDetails, ...biopharmaDetails, ...qcDetails];
-  const detail = allDetails.find(d => d.slug === slug);
-  if (!detail) return <p>Topic not found</p>;
+  const detail = slug ? allDetails.find(d => d.slug === slug) : undefined;
+  const topic = slug ? topics.find(t => t.slug === slug) : undefined;
 
-  const topic = topics.find(t => t.slug === slug);
+  useDocumentTitle(topic?.title, detail?.summary);
+
+  if (!slug) return <p>Invalid topic</p>;
+  if (!detail) return <p>Topic not found</p>;
 
   return (
     <>

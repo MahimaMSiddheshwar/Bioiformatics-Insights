@@ -1,15 +1,16 @@
 // src/pages/SectionPage.tsx
 
 import { useParams, Link } from 'react-router-dom';
-import { topics, Topic } from '../data/topics';
+import { topics, categoryMeta, isCategoryKey, Topic } from '../data/topics';
 import { useScrollToTop } from '../hooks/useScrollToTop';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 const SectionPage = () => {
   const { category, section } = useParams<{
     category: string;
     section: string;
   }>();
-  
+
   useScrollToTop();
 
   // section === groupKey (A, B, C, D, E)
@@ -18,10 +19,16 @@ const SectionPage = () => {
       t.category === category && t.groupKey === section
   );
 
+  const groupTitle = filtered[0]?.groupTitle || 'Topics';
+  const categoryTitle = category && isCategoryKey(category) ? categoryMeta[category].title : undefined;
+  useDocumentTitle(
+    categoryTitle ? `${groupTitle} — ${categoryTitle}` : groupTitle
+  );
+
   return (
     <div className="max-w-6xl mx-auto px-6 py-12">
       <h1 className="text-3xl font-bold mb-8">
-        {filtered[0]?.groupTitle || 'Topics'}
+        {groupTitle}
       </h1>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -413,7 +413,7 @@ const LearningSection = () => {
       </div>
 
       {/* Learning Paths */}
-      <div className="mt-12 p-6 bg-blue-50 rounded-lg border border-blue-200">
+      <div id="learning-paths" className="mt-12 p-6 bg-blue-50 rounded-lg border border-blue-200 scroll-mt-24">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Learning Paths</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
@@ -533,7 +533,7 @@ const LearningSection = () => {
       </div>
 
       {/* Expert Blogs */}
-      <div className="mt-12 p-6 bg-indigo-50 rounded-lg border border-indigo-200">
+      <div id="expert-blogs" className="mt-12 p-6 bg-indigo-50 rounded-lg border border-indigo-200 scroll-mt-24">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">🌟 Expert Bioinformatics Blogs</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="text-center p-4 bg-white rounded-lg border border-indigo-100 hover:shadow-md transition-shadow">

@@ -13,6 +13,7 @@ import ArticlePage from './pages/ArticlePage';
 import SearchPage from './pages/SearchPage';
 import GlossaryPage from './pages/GlossaryPage';
 import LearningsPage from './pages/LearningsPage';
+import About from './pages/About';
 import NotFound from './pages/NotFound';
 
 const App: React.FC = () => {
@@ -45,6 +46,9 @@ const App: React.FC = () => {
               path="/learning-paths"
               element={<Navigate to="/learnings" replace />}
             />
+
+            {/* About */}
+            <Route path="/about" element={<About />} />
 
             {/* 404 */}
             <Route path="*" element={<NotFound />} />

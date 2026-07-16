@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import DNAHelix from '../components/DNAHelix';
 import DNASequenceTranslator from '../components/DNASequenceTranslator';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 const Home: React.FC = () => {
+  useDocumentTitle();
+
   const features = [
     {
       icon: '🧬',
@@ -44,15 +47,15 @@ const Home: React.FC = () => {
   ];
 
   const stats = [
-    { number: '65+', label: 'Glossary Terms', icon: '📚' },
-    { number: '25+', label: 'Learning Resources', icon: '🎓' },
-    { number: '12+', label: 'Expert Blogs', icon: '👥' },
-    { number: '6', label: 'Learning Paths', icon: '🛤️' }
+    { number: '30+', label: 'Glossary Terms', icon: '📚' },
+    { number: '16+', label: 'Learning Resources', icon: '🎓' },
+    { number: '3', label: 'Expert Blogs', icon: '👥' },
+    { number: '3', label: 'Learning Paths', icon: '🛤️' }
   ];
 
   const quickLinks = [
     { title: 'Start Learning', description: 'Begin your bioinformatics journey', icon: '🚀', link: '/learnings' },
-    { title: 'Browse Glossary', description: 'Explore 65+ scientific terms', icon: '📖', link: '/glossary' },
+    { title: 'Browse Glossary', description: 'Explore 30+ scientific terms', icon: '📖', link: '/glossary' },
     { title: 'Expert Insights', description: 'Read industry-leading blogs', icon: '🌟', link: '/learnings#expert-blogs' },
     { title: 'Learning Paths', description: 'Follow structured curriculum', icon: '🎯', link: '/learnings#learning-paths' }
   ];

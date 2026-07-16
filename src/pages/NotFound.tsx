@@ -1,8 +1,11 @@
 // src/pages/NotFound.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 const NotFound: React.FC = () => {
+  useDocumentTitle('Page Not Found');
+
   return (
     <div className="min-h-[60vh] flex items-center justify-center bg-neutral-50 px-6">
       <div className="text-center max-w-md">

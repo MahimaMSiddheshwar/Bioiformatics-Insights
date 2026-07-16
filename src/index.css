@@ -11,18 +11,11 @@
     --font-mono: 'Roboto Mono', 'SF Mono', 'Monaco', 'Inconsolata', monospace;
     --font-serif: 'Georgia', 'Times New Roman', serif;
     
-    --color-primary: 14 165 233;
-    --color-primary-dark: 7 89 133;
-    --color-accent: 16 185 129;
-    --color-accent-dark: 5 150 105;
-    
-    --gradient-biotech: linear-gradient(135deg, #1e3a8a 0%, #0f172a 50%, #1e40af 100%);
-    --gradient-genomics: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
-    --gradient-pharma: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    
-    --shadow-glass: 0 8px 32px rgba(31, 41, 55, 0.1);
+    /* Emerald: the brand color used throughout Header, Home, and Footer */
+    --color-primary: 5 150 105;
+    --color-primary-dark: 4 120 87;
+
     --shadow-card: 0 4px 24px rgba(31, 41, 55, 0.08);
-    --shadow-hover: 0 8px 32px rgba(31, 41, 55, 0.12);
     
     --radius-sm: 8px;
     --radius-md: 12px;
@@ -242,83 +235,7 @@
 }
 
 /* Utility Classes */
-.glass-morphism {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: var(--shadow-glass);
-}
-
-.gradient-biotech {
-  background: var(--gradient-biotech);
-}
-
-.gradient-genomics {
-  background: var(--gradient-genomics);
-}
-
-.gradient-pharma {
-  background: var(--gradient-pharma);
-}
-
-.text-gradient-primary {
-  background: var(--gradient-biotech);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-gradient-accent {
-  background: var(--gradient-pharma);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-  
-  .card:hover {
-    box-shadow: var(--shadow-hover);
-    transform: translateY(-2px);
-  }
-  
-  .btn {
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: var(--radius-md);
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border: none;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    font-family: var(--font-body);
-  }
-  
-  .btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 20px rgba(31, 41, 55, 0.15);
-  }
-  
-  .btn:active {
-    transform: translateY(0);
-  }
-  
-  .btn-primary {
-    background: var(--gradient-biotech);
-    color: white;
-  }
-  
-  .btn-secondary {
-    background: rgba(255, 255, 255, 0.1);
-    color: #374151;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  
-  .btn-accent {
-    background: var(--gradient-pharma);
-    color: white;
-  }
-
-  .container-custom {
+.container-custom {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 var(--spacing-xl);

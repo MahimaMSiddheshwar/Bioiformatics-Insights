@@ -6,6 +6,14 @@ export const useScrollToTop = (delay: number = 100) => {
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
+      if (location.hash) {
+        const target = document.getElementById(location.hash.slice(1));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          return;
+        }
+      }
+
       window.scrollTo({
         top: 0,
         left: 0,
@@ -14,5 +22,5 @@ export const useScrollToTop = (delay: number = 100) => {
     }, delay);
 
     return () => clearTimeout(timeoutId);
-  }, [location.pathname, delay]);
+  }, [location.pathname, location.hash, delay]);
 };

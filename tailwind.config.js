@@ -6,14 +6,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Matches the emerald palette used as the brand color throughout
+        // Header, Home, and Footer, so `primary-*` utilities are consistent
+        // with the rest of the site instead of an unused blue.
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-        },
-        accent: {
           50: '#ecfdf5',
           100: '#d1fae5',
           500: '#10b981',
