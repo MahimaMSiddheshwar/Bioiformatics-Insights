@@ -1,7 +1,7 @@
 // src/components/Header.tsx
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Search, Menu, X } from 'lucide-react';
+import { Search, Menu, X, Dna, Microscope, Pill, CheckCircle2, GraduationCap, BookOpen } from 'lucide-react';
 
 const navBase =
   'inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold transition-colors ' +
@@ -54,7 +54,7 @@ const Header: React.FC = () => {
               }`
             }
           >
-            <span className="text-base">🧬</span>
+            <Dna size={16} />
             <span className="text-[15px] font-extrabold">Bioinformatics</span>
           </NavLink>
 
@@ -66,7 +66,7 @@ const Header: React.FC = () => {
               }`
             }
           >
-            <span className="text-base">🔬</span>
+            <Microscope size={16} />
             <span className="text-[15px] font-extrabold">Biotechnology</span>
           </NavLink>
 
@@ -78,7 +78,7 @@ const Header: React.FC = () => {
               }`
             }
           >
-            <span className="text-base">💊</span>
+            <Pill size={16} />
             <span className="text-[15px] font-extrabold">Biopharma</span>
           </NavLink>
 
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
               }`
             }
           >
-            <span className="text-base">✅</span>
+            <CheckCircle2 size={16} />
             <span className="text-[15px] font-extrabold"> QC</span>
           </NavLink>
 
@@ -104,7 +104,7 @@ const Header: React.FC = () => {
               }`
             }
           >
-            <span className="text-base">🎓</span>
+            <GraduationCap size={16} />
             <span className="text-[15px] font-extrabold">Learnings</span>
           </NavLink>
 
@@ -116,7 +116,7 @@ const Header: React.FC = () => {
               }`
             }
           >
-            <span className="text-base">📘</span>
+            <BookOpen size={16} />
             <span className="text-[15px] font-extrabold">Glossary</span>
           </NavLink>
         </nav>
@@ -147,7 +147,7 @@ const Header: React.FC = () => {
                   }`
                 }
               >
-                <span className="text-base">🧬</span>
+                <Dna size={16} />
                 <span className="text-[15px] font-extrabold">Bioinformatics</span>
               </NavLink>
 
@@ -160,7 +160,7 @@ const Header: React.FC = () => {
                   }`
                 }
               >
-                <span className="text-base">🔬</span>
+                <Microscope size={16} />
                 <span className="text-[15px] font-extrabold">Biotechnology</span>
               </NavLink>
 
@@ -173,7 +173,7 @@ const Header: React.FC = () => {
                   }`
                 }
               >
-                <span className="text-base">💊</span>
+                <Pill size={16} />
                 <span className="text-[15px] font-extrabold">Biopharma</span>
               </NavLink>
 
@@ -186,7 +186,7 @@ const Header: React.FC = () => {
                   }`
                 }
               >
-                <span className="text-base">✅</span>
+                <CheckCircle2 size={16} />
                 <span className="text-[15px] font-extrabold"> QC</span>
               </NavLink>
 
@@ -199,7 +199,7 @@ const Header: React.FC = () => {
                   }`
                 }
               >
-                <span className="text-base">🎓</span>
+                <GraduationCap size={16} />
                 <span className="text-[15px] font-extrabold">Learnings</span>
               </NavLink>
 
@@ -212,7 +212,7 @@ const Header: React.FC = () => {
                   }`
                 }
               >
-                <span className="text-base">📘</span>
+                <BookOpen size={16} />
                 <span className="text-[15px] font-extrabold">Glossary</span>
               </NavLink>
 

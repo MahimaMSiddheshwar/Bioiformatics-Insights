@@ -3,25 +3,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useScrollToTop } from '../hooks/useScrollToTop';
+import { Dna, Microscope, Pill, CheckCircle2, Rocket } from 'lucide-react';
 
 const pillars = [
   {
-    icon: '🧬',
+    icon: Dna,
     title: 'Bioinformatics',
     description: 'Computation, omics, pipelines, and biological interpretation.',
   },
   {
-    icon: '🔬',
+    icon: Microscope,
     title: 'Biotechnology',
     description: 'Molecular biology, biochemistry, cell culture, and immunology.',
   },
   {
-    icon: '💊',
+    icon: Pill,
     title: 'Biopharma',
     description: 'Drug discovery, development, regulation, and translation.',
   },
   {
-    icon: '✅',
+    icon: CheckCircle2,
     title: 'Quality Control',
     description: 'Quality systems, audits, data integrity, and GxP.',
   },
@@ -37,8 +38,8 @@ const About: React.FC = () => {
   return (
     <main className="min-h-screen bg-gradient-to-br from-neutral-50 via-emerald-50 to-white">
       <section className="max-w-4xl mx-auto px-6 py-20">
-        <span className="inline-block px-4 py-2 bg-emerald-100 text-emerald-800 text-sm font-semibold rounded-full">
-          🧬 About This Project
+        <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-100 text-emerald-800 text-sm font-semibold rounded-full">
+          <Dna size={16} /> About This Project
         </span>
 
         <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mt-6 mb-6 tracking-tight">
@@ -74,7 +75,7 @@ const About: React.FC = () => {
               key={pillar.title}
               className="p-6 bg-white border-2 border-neutral-200 rounded-2xl"
             >
-              <div className="text-3xl mb-3">{pillar.icon}</div>
+              <pillar.icon className="w-8 h-8 mb-3 text-emerald-600" />
               <h3 className="text-lg font-bold text-neutral-900 mb-2">{pillar.title}</h3>
               <p className="text-neutral-600 text-sm leading-relaxed">{pillar.description}</p>
             </div>
@@ -84,9 +85,9 @@ const About: React.FC = () => {
         <div className="text-center">
           <Link
             to="/learnings"
-            className="inline-block px-8 py-4 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 transition-all"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 transition-all"
           >
-            Start Learning 🚀
+            Start Learning <Rocket size={18} />
           </Link>
         </div>
       </section>

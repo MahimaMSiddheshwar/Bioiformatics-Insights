@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import { Dna } from 'lucide-react';
 
 const NotFound: React.FC = () => {
   useDocumentTitle('Page Not Found');
@@ -9,7 +10,7 @@ const NotFound: React.FC = () => {
   return (
     <div className="min-h-[60vh] flex items-center justify-center bg-neutral-50 px-6">
       <div className="text-center max-w-md">
-        <div className="text-6xl mb-6">🧬</div>
+        <Dna className="w-16 h-16 mx-auto mb-6 text-emerald-600" />
         <h1 className="text-4xl font-bold text-neutral-900 mb-3">404</h1>
         <p className="text-lg text-neutral-600 mb-8">
           This page doesn't exist — it may have been moved or the link may be incorrect.

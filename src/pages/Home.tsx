@@ -3,13 +3,26 @@ import { Link } from 'react-router-dom';
 import DNAHelix from '../components/DNAHelix';
 import DNASequenceTranslator from '../components/DNASequenceTranslator';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import {
+  Dna,
+  Microscope,
+  Pill,
+  CheckCircle2,
+  BookOpen,
+  GraduationCap,
+  Users,
+  Route,
+  Rocket,
+  Sparkles,
+  Target,
+} from 'lucide-react';
 
 const Home: React.FC = () => {
   useDocumentTitle();
 
   const features = [
     {
-      icon: '🧬',
+      icon: Dna,
       title: 'Bioinformatics',
       description: 'Master computational analysis of biological data with our comprehensive learning resources.',
       link: '/category/bioinformatics',
@@ -18,7 +31,7 @@ const Home: React.FC = () => {
       iconBg: 'bg-emerald-100'
     },
     {
-      icon: '🔬',
+      icon: Microscope,
       title: 'Biotechnology',
       description: 'Explore the intersection of biology and technology through hands-on tutorials.',
       link: '/category/biotechnology',
@@ -27,7 +40,7 @@ const Home: React.FC = () => {
       iconBg: 'bg-purple-100'
     },
     {
-      icon: '💊',
+      icon: Pill,
       title: 'Biopharma',
       description: 'Understand drug discovery, clinical trials, and pharmaceutical development.',
       link: '/category/biopharma',
@@ -36,7 +49,7 @@ const Home: React.FC = () => {
       iconBg: 'bg-pink-100'
     },
     {
-      icon: '✅',
+      icon: CheckCircle2,
       title: 'Quality Control',
       description: 'Learn quality assurance, validation, and compliance in life sciences.',
       link: '/category/qc',
@@ -47,17 +60,17 @@ const Home: React.FC = () => {
   ];
 
   const stats = [
-    { number: '30+', label: 'Glossary Terms', icon: '📚' },
-    { number: '16+', label: 'Learning Resources', icon: '🎓' },
-    { number: '3', label: 'Expert Blogs', icon: '👥' },
-    { number: '3', label: 'Learning Paths', icon: '🛤️' }
+    { number: '30+', label: 'Glossary Terms', icon: BookOpen },
+    { number: '16+', label: 'Learning Resources', icon: GraduationCap },
+    { number: '3', label: 'Expert Blogs', icon: Users },
+    { number: '3', label: 'Learning Paths', icon: Route }
   ];
 
   const quickLinks = [
-    { title: 'Start Learning', description: 'Begin your bioinformatics journey', icon: '🚀', link: '/learnings' },
-    { title: 'Browse Glossary', description: 'Explore 30+ scientific terms', icon: '📖', link: '/glossary' },
-    { title: 'Expert Insights', description: 'Read industry-leading blogs', icon: '🌟', link: '/learnings#expert-blogs' },
-    { title: 'Learning Paths', description: 'Follow structured curriculum', icon: '🎯', link: '/learnings#learning-paths' }
+    { title: 'Start Learning', description: 'Begin your bioinformatics journey', icon: Rocket, link: '/learnings' },
+    { title: 'Browse Glossary', description: 'Explore 30+ scientific terms', icon: BookOpen, link: '/glossary' },
+    { title: 'Expert Insights', description: 'Read industry-leading blogs', icon: Sparkles, link: '/learnings#expert-blogs' },
+    { title: 'Learning Paths', description: 'Follow structured curriculum', icon: Target, link: '/learnings#learning-paths' }
   ];
 
   return (
@@ -73,8 +86,8 @@ const Home: React.FC = () => {
       <section className="relative pt-20 pb-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <div className="mb-8">
-            <span className="inline-block px-4 py-2 bg-emerald-100 text-emerald-800 text-sm font-semibold rounded-full">
-              🧬 Scientific Learning Platform
+            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-100 text-emerald-800 text-sm font-semibold rounded-full">
+              <Dna size={16} /> Scientific Learning Platform
             </span>
           </div>
           
@@ -93,9 +106,9 @@ const Home: React.FC = () => {
           <div className="flex justify-center mb-12">
             <Link
               to="/learnings"
-              className="px-8 py-4 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 transition-all transform hover:scale-105 shadow-lg"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 transition-all transform hover:scale-105 shadow-lg"
             >
-              Start Learning 🚀
+              Start Learning <Rocket size={18} />
             </Link>
           </div>
         </div>
@@ -119,7 +132,7 @@ const Home: React.FC = () => {
                 className="group block p-8 bg-gradient-to-br border-2 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
               >
                 <div className={`bg-gradient-to-br ${feature.gradient} ${feature.borderColor} ${feature.iconBg} w-20 h-20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <span className="text-3xl">{feature.icon}</span>
+                  <feature.icon className="w-8 h-8 text-neutral-700" />
                 </div>
                 <h3 className="text-xl font-bold text-neutral-900 mb-3 group-hover:text-emerald-600 transition-colors">
                   {feature.title}
@@ -152,7 +165,7 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center p-6 bg-white rounded-2xl shadow-lg border border-neutral-200">
-                <div className="text-4xl mb-2">{stat.icon}</div>
+                <stat.icon className="w-8 h-8 mx-auto mb-2 text-emerald-600" />
                 <div className="text-3xl font-bold text-neutral-900 mb-1">{stat.number}</div>
                 <div className="text-sm text-neutral-600">{stat.label}</div>
               </div>
@@ -178,7 +191,7 @@ const Home: React.FC = () => {
                 className="group p-6 bg-gradient-to-br from-neutral-50 to-white border-2 border-neutral-200 rounded-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-emerald-300"
               >
                 <div className="text-center">
-                  <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">{link.icon}</div>
+                  <link.icon className="w-8 h-8 mx-auto mb-4 text-emerald-600 group-hover:scale-110 transition-transform duration-300" />
                   <h3 className="text-lg font-semibold text-neutral-900 mb-2 group-hover:text-emerald-600 transition-colors">
                     {link.title}
                   </h3>
@@ -196,19 +209,17 @@ const Home: React.FC = () => {
       <section className="py-20 bg-gradient-to-r from-indigo-50 to-purple-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-neutral-900 mb-4">🌟 Expert Insights</h2>
+            <h2 className="inline-flex items-center gap-2 text-3xl font-bold text-neutral-900 mb-4">
+              <Sparkles className="text-indigo-500" /> Expert Insights
+            </h2>
             <p className="text-xl text-neutral-600 mb-8">
               Learn from industry leaders and stay updated with the latest trends
             </p>
           </div>
-          
+
           <div className="text-center">
             <div className="inline-flex items-center px-8 py-4 bg-white text-indigo-600 font-semibold rounded-xl border-2 border-indigo-600 shadow-lg">
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5c0 1.146 1.646 2.085 3 1.085 1.465 1.295 2.085 2.085 0 1.925-2.665 3-3 0 .804 1.065 1.539 2.531 2.531 0 1.638-1.336-3-3 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.25 8.75l-3-3.5m3.5 0l-3 3.5M8.25 5.25l-3-3.5m3.5 0l-3 3.5" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.25 7.5l-6.375-6.937m6.375 0l-6.375 6.937M20.25 4l-6.375-6.937m6.375 0l-6.375 6.937" />
-              </svg>
+              <BookOpen className="w-5 h-5 mr-2" />
               Expert Blogs Available
             </div>
           </div>
@@ -264,15 +275,15 @@ const Home: React.FC = () => {
             <div className="flex items-center justify-center gap-6">
               {/* Start Learning Icon */}
               <div className="flex items-center justify-center w-16 h-16 bg-emerald-600 rounded-full hover:bg-emerald-700 transition-all duration-300 transform hover:scale-110 shadow-lg cursor-pointer">
-                <span className="text-2xl">🚀</span>
+                <Rocket className="w-6 h-6 text-white" />
               </div>
-              
+
               {/* Browse Glossary Link */}
               <Link
                 to="/glossary"
-                className="px-8 py-4 bg-white text-emerald-700 font-semibold rounded-xl hover:bg-emerald-50 transition-all duration-300 border-2 border-emerald-200"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-emerald-700 font-semibold rounded-xl hover:bg-emerald-50 transition-all duration-300 border-2 border-emerald-200"
               >
-                Browse Glossary 📖
+                Browse Glossary <BookOpen size={18} />
               </Link>
             </div>
           </div>
